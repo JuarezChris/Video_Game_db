@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/nes.css/css/nes-core.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <style>
+      html,
+      body,
+      pre,
+      code,
+      kbd,
+      samp {
+        font-family: "Press Start 2P", cursive;
+        background-color: rgb(34, 34, 34);
+        color: white;
+      }
+      .element {
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+
+        animation-name: stretch;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        animation-delay: 0;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-fill-mode: none;
+        animation-play-state: running;
+      }
+
+      @keyframes stretch {
+        0% {
+          transform: scale(0.5);
+
+          border-radius: 100%;
+        }
+        50% {
+          color: rgba(40, 120, 77);
+        }
+        100% {
+          transform: scale(1);
+          color: rgba(120, 180, 148);
+        }
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: auto;
+      }
+      #table-box {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .bottom {
+        height: 50px;
+        width: 400px;
+        margin: 0 auto;
+        align-self: center;
+        justify-content: space-around;
+      }
+      #second-table {
+        margin: 0px;
+        padding: 0px;
+        width: 400px;
+        align-self: center;
+        background-color: rgb(34, 34, 34);
+      }
+      .add-link{
+        color: rebeccapurple;
+      }
+    </style>
+    <title>Video Games</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1 class="element">Video Games! <i class="snes-jp-logo"></i></h1>
+      </div>
+      <div id="table-box" class="nes-table-responsive">
+        <table class="nes-table is-bordered is-dark">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Release Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for game in all_video_games %}
+            <tr>
+              <td>{{ game.id }}</td>
+              <td>{{ game.title }}</td>
+              <td>{{ game.company }}</td>
+              <td>{{ game.release_date }}</td>
+              <td>
+                <a href="/details_page/{{ game.id }}">Details</a> | <a href="/edit_page/{{ game.id }}">Edit</a> |
+                <a href="/delete/{{ game.id }}">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <table id="second-table" class="nes-table">
+          <td>
+            <a class="add-link" href="/new">Add new Video Game</a>
+            <i class="nes-logo"></i>
+          </td>
+        </table>
+        <br>
+        <div class="nes-container is-dark with-title">
+          <p class="title">Legend of Who?</p>
+          <p>EAT! SLEEP! GAME! REPEAT!</p><i class="nes-icon coin is-large"></i><i class="nes-icon coin is-large"></i><i class="nes-icon coin is-large"></i><i class="nes-icon trophy is-large"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

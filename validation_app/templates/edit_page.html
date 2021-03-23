@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Game</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/nes.css/css/nes-core.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+      />
+      <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+      
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-weight: 900;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: auto;
+      }
+      html,
+      body,
+      pre,
+      code,
+      kbd,
+      samp {
+        font-family: "Press Start 2P", cursive;
+        background-color: rgb(34, 34, 34);
+        color: white;
+      }
+      .dark-mode {
+        background: linear-gradient(
+          -30deg,
+          rgba(120, 180, 148),
+          rgba(40, 120, 77),
+          rgba(120, 180, 148),
+          rgba(40, 120, 77)
+        );
+        background-size: 400% 400%;
+        animation: gradient 7s ease infinite;
+        border: none;
+        color: rgb(34, 34, 34);
+      }
+      h2 {
+        text-align: center;
+        padding: 20px;
+      }
+      .form-container {
+        align-self: center;
+        height: 400px;
+        width: 400px;
+
+      }
+      .form-box{
+          display:flex;
+          flex-direction: column;
+      }
+      button{
+          align-self: center;
+      }
+   
+
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2 class="dark-mode">New Update Coming Soon</h2>
+      <a style="align-self: flex-end" href="/">Go Back</a>
+      <div class="form-container">
+        {% if messages %}
+          <ul class="messages">    
+              {% for message in messages %}    
+                  <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+              {% endfor %}
+          </ul>
+          {% endif %}
+        <h3>Updating...</h3>
+        <form class="form-box" action="/update_my_video_game/{{ video_game.id }}" method="POST">
+            {% csrf_token %}
+          <div
+            style="background-color: #212529; padding: 1rem"
+            class="nes-field is-inline"
+          >
+            <label for="company_name">Company</label>
+            <input type="text" name="company_name" class="nes-input" placeholder="{{ video_game.company }}"/>
+          </div>
+
+          <div
+            style="background-color: #212529; padding: 1rem"
+            class="nes-field is-inline"
+          >
+            <label for="title">Title</label>
+            <input type="text" name="title" class="nes-input" placeholder="{{ video_game.title }}"/>
+          </div>
+
+          <div
+            style="background-color: #212529; padding: 1rem"
+            class="nes-field is-inline"
+          >
+            <label for="release_date">Release Date</label>
+            <input type="date" name="release_date" class="nes-input" placeholder="{{ video_game.release_date }}"/>
+          </div>
+
+          <div
+            style="background-color: #212529; padding: 1rem"
+            class="nes-field is-inline"
+          >
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="nes-textarea" placeholder="{{ video_game.description }}"></textarea>
+          </div>
+          <button type="submit" class="nes-btn is-success">Update</button>
+        </form>
+      </div><br><br><br><br>
+
+    <!-- Balloon 'is-dark'  -->
+    <section class="nes-container is-dark">
+        <!-- Copyright Nintendo -->
+      <section class="message-list">
+          <section class="message -left">
+            <i class="nes-ash"></i>
+            <!-- Balloon -->
+            <div class="nes-balloon from-left is-dark">
+              <p>Hello NES.css</p>
+            </div>
+          </section>
+    
+          <section class="message -right">
+            <!-- Balloon -->
+            <div class="nes-balloon from-right is-dark">
+              <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+            </div>
+            <i class="nes-mario"></i>
+          </section>
+        </section>
+      </section>
+    </section>
+    </div>
+  </body>
+</html>

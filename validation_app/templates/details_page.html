@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-weight: 900;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: auto;
+      }
+      html,
+      body,
+      pre,
+      code,
+      kbd,
+      samp {
+        font-family: "Press Start 2P", cursive;
+        background-color: rgb(34, 34, 34);
+        color: white;
+      }
+      .dark-mode {
+        background: linear-gradient(
+          -30deg,
+          rgba(120, 180, 148),
+          rgba(40, 120, 77),
+          rgba(120, 180, 148),
+          rgba(40, 120, 77)
+        );
+        background-size: 400% 400%;
+        animation: gradient 7s ease infinite;
+        border: none;
+        color: rgb(34, 34, 34);
+        text-align: center;
+        padding: 20px;
+      }
+      
+      .info {
+        align-self: center;
+        height: 400px;
+        width: 800px;
+        display:flex;
+        flex-direction: column;
+      }
+      button{
+          align-self: center;
+      }
+    </style>
+    <title>Video Games</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2 class="dark-mode">You Win!!</h2>
+        <a style="align-self: flex-end" href="/">Home</a>
+        <h1>Video Game #{{get_game.id}}</h1>
+        <div class="info">
+            <h2>Title: {{get_game.title}}</h2>
+            <h2>Company: {{get_game.company}}</h2>
+            <h2>Release Date: {{get_game.release_date}}</h2>
+            <h2>Description: {{get_game.description}}</h2>
+        </div><br><br><br>
+        
+  
+      <!-- Balloon 'is-dark'  -->
+      <section class="nes-container is-dark">
+          <!-- Copyright Nintendo -->
+        <section class="message-list">
+            <section class="message -left">
+              <i class="nes-ash"></i>
+              <!-- Balloon -->
+              <div class="nes-balloon from-left is-dark">
+                <p>Hello NES.css</p>
+              </div>
+            </section>
+      
+            <section class="message -right">
+              <!-- Balloon -->
+              <div class="nes-balloon from-right is-dark">
+                <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+              </div>
+              <i class="nes-squirtle"></i>
+            </section>
+          </section>
+        </section>
+      </section>
+    </div>
+</body>
+</html>
